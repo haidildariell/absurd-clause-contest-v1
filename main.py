@@ -13,10 +13,14 @@ CLAUSE = (
 )
 
 
+def write_entry(path, text):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(text)
+
+
 def main():
-    os.makedirs("/output", exist_ok=True)
-    with open("/output/entry.txt", "w", encoding="utf-8") as f:
-        f.write(CLAUSE)
+    write_entry("/output/entry.txt", CLAUSE)
 
 
 if __name__ == "__main__":
